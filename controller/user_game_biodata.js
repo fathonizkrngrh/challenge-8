@@ -12,7 +12,7 @@ module.exports = {
       if (existBio) {
         return res.status(409).json({
           status: false,
-          message: "Biodata sudah ada",
+          message: "Bio already registered",
         });
       }
 
@@ -24,8 +24,8 @@ module.exports = {
       });
 
       return res.status(201).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "success adding new bio",
         data: {
           firstname: createdBio.first_name,
           lastname: createdBio.last_name,
@@ -41,14 +41,14 @@ module.exports = {
     try {
       const users = await user_game_biodata.findAll();
       if (users.length <= 0) {
-        res.status(404).json({
+        res.status(409).json({
           status: false,
           message: "empty data",
           data: null,
         });
       }
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "data showed successfull",
         data: users,
       });
@@ -68,7 +68,7 @@ module.exports = {
       });
     }
     return res.status(200).json({
-      status: false,
+      status: true,
       message: "data has found",
       data: findBio,
     });
@@ -87,9 +87,9 @@ module.exports = {
         where: { telephone_number: oldPhoneNumber },
       });
       if (!findBio) {
-        return res.status(404).json({
-          success: false,
-          message: "Bio not found!",
+        return res.status(400).json({
+          status: false,
+          message: "phonenumber not found!",
         });
       }
       const updatedBio = await findBio.update({
@@ -97,8 +97,8 @@ module.exports = {
       });
 
       return res.status(200).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "success change phone number",
         data: updatedBio,
       });
     } catch (err) {
@@ -112,13 +112,13 @@ module.exports = {
       const findBio = await user_game_biodata.findOne({ where: { id: id } });
       if (!findBio) {
         return res.status(404).json({
-          success: false,
+          status: false,
           message: "Bio not found!",
         });
       }
       let deletedBio = await findBio.destroy();
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "bio deleted successfull",
         data: deletedBio,
       });

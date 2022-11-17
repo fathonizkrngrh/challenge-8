@@ -28,9 +28,10 @@ module.exports = {
         rank,
       });
 
+      console.log(existUser);
       return res.status(201).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "success adding history",
         data: {
           user_id: createdRecord.user_id,
           points: createdRecord.points,
@@ -46,14 +47,14 @@ module.exports = {
     try {
       const records = await user_game_history.findAll();
       if (records.length <= 0) {
-        res.status(404).json({
+        res.status(409).json({
           status: false,
           message: "empty record",
           data: null,
         });
       }
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "data showed successfull",
         data: records,
       });
@@ -64,10 +65,10 @@ module.exports = {
 
   detailRecord: async (req, res, next) => {
     const { id } = req.params;
-    const findRecords = await user_game_history.findAll({
+    let findRecords = await user_game_history.findAll({
       where: { user_id: id },
     });
-    if (!findRecords) {
+    if (findRecords.data == null) {
       return res.status(409).json({
         status: false,
         message: "data not found",
@@ -75,8 +76,9 @@ module.exports = {
       });
     }
     return res.status(200).json({
-      status: false,
+      status: true,
       message: "data has found",
+      id: id,
       data: findRecords,
     });
   },
@@ -93,7 +95,7 @@ module.exports = {
         order: sequelize.literal("total_points DESC"),
       });
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "record has ranked",
         data: groupRecord,
       });

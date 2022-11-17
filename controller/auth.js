@@ -31,8 +31,8 @@ module.exports = {
       });
 
       return res.status(201).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "Account Created!",
         data: {
           email: user.email,
           username: user.username,
@@ -53,13 +53,13 @@ module.exports = {
       if (!user) {
         return res.status(409).json({
           status: false,
-          message: "email or password doesn't match!!",
+          message: "email or password doesn't match",
         });
       }
       // cek hash password
       const isCorrect = await bcrypt.compare(password, user.password);
       if (!isCorrect) {
-        return res.status(400).json({
+        return res.status(409).json({
           status: false,
           message: "email or password doesn't match",
         });
@@ -68,18 +68,18 @@ module.exports = {
       //, generate token jwt
       payload = {
         id: user.id,
-        name: user.username,
+        username: user.username,
         email: user.email,
       };
 
       const token = jwt.sign(payload, JWT_SIGNATURE_KEY);
 
       return res.status(201).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "Login Success",
         data: {
           email: user.email,
-          name: user.username,
+          username: user.username,
           token: token,
         },
       });
@@ -93,14 +93,14 @@ module.exports = {
     try {
       const users = await user_game.findAll();
       if (users.length <= 0) {
-        res.status(404).json({
+        res.status(409).json({
           status: false,
           message: "empty data",
           data: null,
         });
       }
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "data showed successfull",
         data: users,
       });
@@ -113,8 +113,8 @@ module.exports = {
 
     try {
       return res.status(200).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "data showed successfull",
         data: user,
       });
     } catch (error) {
@@ -161,8 +161,8 @@ module.exports = {
       );
 
       return res.status(200).json({
-        status: false,
-        message: "success",
+        status: true,
+        message: "change password success",
         data: updatedUser,
       });
     } catch (err) {
@@ -174,14 +174,14 @@ module.exports = {
     try {
       const findUser = await user_game.findOne({ where: { id: id } });
       if (!findUser) {
-        return res.status(404).json({
-          success: false,
+        return res.status(402).json({
+          status: false,
           message: "User not found!",
         });
       }
       let deletedUser = await findUser.destroy();
       return res.status(200).json({
-        status: false,
+        status: true,
         message: "user deleted successfull",
         data: deletedUser,
       });

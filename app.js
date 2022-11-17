@@ -20,16 +20,16 @@ app.get("/", (req, res) => {
 app.use((req, res, next) => {
   return res.status(404).json({
     status: "false",
-    message: "are you lost?",
+    message: "are you lost?"
   });
 });
+
 // 500 Handler
 app.use((err, req, res, next) => {
-  console.log(err);
   return res.status(500).json({
     status: "false",
     message: err.message,
   });
 });
 
-app.listen(HTTP_PORT, () => console.log("listening on port", HTTP_PORT));
+module.exports = app;
