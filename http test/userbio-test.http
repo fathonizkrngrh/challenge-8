@@ -1,0 +1,40 @@
+// register
+POST http://localhost:3000/bio/add 
+content-type: application/json
+Authorization: 
+
+{
+    
+	"first_name" : "fathoni",
+	"last_name" : "zikri",
+	"telephone_number" : "0898666",
+	"birthdate": "30-10-2002"
+
+}
+####
+// change phone number
+POST http://localhost:3000/bio/changephonenumber 
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5Mjk2ODV9.zzUcd81R8-Ez21us_mGKWZte0veahn3Z7sdzpZl1X0E
+
+{
+    
+	"oldPhoneNumber": "089812345",
+    "newPhoneNumber": "08980001",
+     "confirmPhoneNumber": "08980001"
+
+}
+
+####
+// show bio
+GET http://localhost:3000/bio/show 
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5Mjk2ODV9.zzUcd81R8-Ez21us_mGKWZte0veahn3Z7sdzpZl1X0E
+
+####
+// show bio details
+GET http://localhost:3000/bio/detail/1 
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5Mjk2ODV9.zzUcd81R8-Ez21us_mGKWZte0veahn3Z7sdzpZl1X0E
+
+

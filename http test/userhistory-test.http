@@ -1,0 +1,42 @@
+// register
+POST http://localhost:3000/auth/register 
+content-type: application/json
+Authorization: 
+
+{
+    "username": "fathonizikri",
+    "email": "fathzkr@gmail.com",
+    "password": "1234"
+}
+
+####
+// login
+POST http://localhost:3000/auth/login 
+content-type: application/json
+Authorization: 
+
+{
+    "email": "fathzkr@gmail.com",
+    "password": "45678"
+}
+
+####
+// show user
+GET  http://localhost:3000/auth/show 
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5Mjk2ODV9.zzUcd81R8-Ez21us_mGKWZte0veahn3Z7sdzpZl1X0E
+
+# {
+#     "email": "fathzkr@gmail.com",
+#     "password": "1234"
+# }
+####
+POST   http://localhost:3000/auth/changepassword 
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5Mjk2ODV9.zzUcd81R8-Ez21us_mGKWZte0veahn3Z7sdzpZl1X0E
+
+{
+    "oldPassword" : "1234",
+	"newPassword" : "45678",
+	"confirmNewPass" : "45678"
+}

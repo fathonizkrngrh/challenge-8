@@ -1,0 +1,399 @@
+{
+  "item": [
+    {
+      "id": "c25ece45-78d5-4eba-9cd4-21cb63825d23",
+      "name": "Register New User",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "register"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          { "key": "Authorization", "value": "" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"fathoni\",\"email\":\"fath123@gmail.com\",\"password\":\"1234\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "c20af674-ae89-4ed4-a956-c038fd93ff19",
+      "name": "Login User Game",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "login "],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          { "key": "Authorization", "value": "" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"fath123@gmail.com\",\"password\":\"1234\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "02e29504-ee1b-4a19-8a98-c97545f23214",
+      "name": "Show All User Game",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "show", ""],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"fathzkr@gmail.com\",\"password\":\"45678\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "c31911c0-83ed-4d42-b56d-7771acb90201",
+      "name": "Show My Info",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "me"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"fathzkr@gmail.com\",\"password\":\"1234\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "0c39f8c3-d5cf-4c27-ab91-7294d6519415",
+      "name": "Change Password",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "changepassword"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"oldPassword\":\"1234\",\"newPassword\":\"45678\",\"confirmNewPass\":\"45678\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "73de9a7c-de09-43a8-a008-d97f446d745c",
+      "name": "Delete User",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["auth", "deleteuser", "4"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "DELETE",
+        "body": { "mode": "raw", "raw": "{\"id\":\"value id\"}" }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "b9909bc7-801c-4eed-a0b8-69aa405208ee",
+      "name": "Add Biodata User",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["bio", "addbio"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"first_name\":\"fathoni\",\"last_name\":\"zikri\",\"telephone_number\":\"0898612\",\"birthdate\":\"30-10-2002\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "abeed064-df0c-4c7d-9e3d-d4b5d69476a6",
+      "name": "Show All Biodata",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["bio", "show", ""],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET"
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "9d10e811-4e4a-4664-814e-7f37ab6bf2b1",
+      "name": "Show Details Biodata by Id",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["bio", "show", "4"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET"
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "aed47590-eea1-4fbd-bffe-64a245b2ff94",
+      "name": "Change Phonenumber",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["bio", "changephonenumber"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"oldPhoneNumber\":\"0898000\",\"newPhoneNumber\":\"08981111\",\"confirmPhoneNumber\":\"08981111\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "ed9085a7-9268-4a8f-b3f1-03055aec8cc5",
+      "name": "Delete Biodata",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["bio", "delete", "3"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "DELETE",
+        "body": { "mode": "raw", "raw": "{\"id\":\"value id\"}" }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "1758a546-0f9c-4d19-bcee-a17006143eff",
+      "name": "Add Record",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["history", "add"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\":6,\"points\":50,\"match_played\":3,\"rank\":\"Bronze\"}"
+        }
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "387d14ca-63ee-4c3f-bc5d-a126c884b52c",
+      "name": "Show All History",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["history", "show", ""],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET"
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "97879080-1d77-4bf7-93d5-a336b997afca",
+      "name": "Show All History",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["history", "show", "rank"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET"
+      },
+      "response": [],
+      "event": []
+    },
+    {
+      "id": "8edb6ec9-f43a-49e3-87a3-9bec726d248b",
+      "name": "Show History by Id",
+      "request": {
+        "url": {
+          "protocol": "http",
+          "port": "3000",
+          "path": ["history", "show", "4"],
+          "host": ["localhost"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImZhdGhvbml6aWtyaSIsImVtYWlsIjoiZmF0aHprckBnbWFpbC5jb20iLCJpYXQiOjE2Njc5MzYwMTF9.3m6BVdaQWlqajC2LTX7dUbpF4Xc1FxgHXxUTGs_NRRY"
+          },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "method": "GET"
+      },
+      "response": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [],
+  "info": {
+    "_postman_id": "79e94ae3-7152-435d-9766-1bd6ef13c710",
+    "name": "Membuat dokumentasi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  }
+}
