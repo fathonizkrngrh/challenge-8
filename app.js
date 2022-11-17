@@ -10,6 +10,11 @@ const { HTTP_PORT } = process.env;
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(routes);
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+  return res.render("welcome")
+});
 
 // 404 Handler
 app.use((req, res, next) => {
