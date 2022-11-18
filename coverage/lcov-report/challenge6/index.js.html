@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for challenge6/routes/index.js</title>
+    <title>Code coverage report for challenge6/index.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">challenge6/routes</a> index.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">challenge6</a> index.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.48% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/39</span>
+                <span class='fraction'>32/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.48% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/39</span>
+                <span class='fraction'>32/37</span>
             </div>
         
             
@@ -100,9 +100,7 @@
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -117,69 +115,65 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require("express");
-const router = express.Router();
-const c = require("../controller");
-const mid = require("../helper/middleware");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">require("dotenv").config();
 &nbsp;
-// authorization
-router.post("/auth/register", c.auth.register);
-router.post("/auth/login", c.auth.login);
-router.get("/auth/show", mid.mustlogin, c.auth.showAll);
-router.get("/auth/me", mid.mustlogin, c.auth.whoami);
-router.post("/auth/changepassword", mid.mustlogin, c.auth.changePassword);
-router.delete("/auth/deleteuser/:id", mid.mustlogin, c.auth.deleteUser);
+const express = require("express");
+const morgan = require("morgan");
+const routes = require("./routes");
+const app = express();
 &nbsp;
-// user game biodata
-router.post("/bio/add", mid.mustlogin, c.user_game_biodata.addBio);
-router.get("/bio/show", mid.mustlogin, c.user_game_biodata.showAll);
-router.get("/bio/show/:id", mid.mustlogin, c.user_game_biodata.detailBio);
-router.post(
-  "/bio/changephonenumber",
-  mid.mustlogin,
-  c.user_game_biodata.updatePhoneNumber
-);
-router.delete("/bio/delete/:id", mid.mustlogin, c.user_game_biodata.deleteBio);
+const { HTTP_PORT } = process.env;
 &nbsp;
-// user game history
-router.post("/history/add", mid.mustlogin, c.user_game_history.addRecord);
-router.get("/history/show", mid.mustlogin, c.user_game_history.showAll);
-router.get(
-  "/history/show/rank",
-  mid.mustlogin,
-  c.user_game_history.rankingRecord
-);
-router.get(
-  "/history/show/:id",
-  mid.mustlogin,
-  c.user_game_history.detailRecord
-);
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(routes);
+app.set("view engine", "ejs");
 &nbsp;
-module.exports = router;
+app.get("/", (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return res.render("welcome");</span>
+});
+&nbsp;
+// 404 Handler
+app.use((req, res, next) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return res.status(404).json({</span>
+<span class="cstat-no" title="statement not covered" >    status: "false",</span>
+<span class="cstat-no" title="statement not covered" >    message: "are you lost?",</span>
+<span class="cstat-no" title="statement not covered" >  });</span>
+});
+&nbsp;
+// 500 Handler
+app.use((err, req, res, next) =&gt; {
+  return res.status(500).json({
+    status: "false",
+    message: err.message,
+  });
+});
+&nbsp;
+app.listen(HTTP_PORT, () =&gt; console.log("listening on port", HTTP_PORT));
+&nbsp;
+module.exports = app;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -189,14 +183,14 @@ module.exports = router;
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2022-11-18T03:05:18.097Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

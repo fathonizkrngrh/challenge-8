@@ -65,10 +65,10 @@ module.exports = {
 
   detailRecord: async (req, res, next) => {
     const { id } = req.params;
-    let findRecords = await user_game_history.findAll({
+    let findRecords = await user_game_history.findOne({
       where: { user_id: id },
     });
-    if (findRecords.data == null) {
+    if (findRecords == null) {
       return res.status(409).json({
         status: false,
         message: "data not found",

@@ -13,14 +13,14 @@ app.use(routes);
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  return res.render("welcome")
+  return res.render("welcome");
 });
 
 // 404 Handler
 app.use((req, res, next) => {
   return res.status(404).json({
     status: "false",
-    message: "are you lost?"
+    message: "are you lost?",
   });
 });
 
@@ -31,5 +31,7 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
+app.listen(HTTP_PORT, () => console.log("listening on port", HTTP_PORT));
 
 module.exports = app;
