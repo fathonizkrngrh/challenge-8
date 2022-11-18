@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const morgan = require("morgan");
+var cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const app = express();
 
@@ -11,9 +12,14 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(routes);
 app.set("view engine", "ejs");
+app.use(cookieParser());
 
+//
 app.get("/", (req, res) => {
-  return res.render("welcome");
+  return res.status(200).json({
+    status: true,
+    message: "Bimsillah bisa kedeploy",
+  });
 });
 
 // 404 Handler
