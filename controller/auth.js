@@ -1,4 +1,6 @@
 const { user_game } = require("../models");
+const roles = require("../utils/users/role");
+const userType = require("../utils/users/provider");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -8,28 +10,26 @@ module.exports = {
   register: async (req, res, next) => {
     try {
       const { username, email, password } = req.body;
-
       const existUser = await user_game.findOne({
         where: {
           email: email,
         },
       });
-
       if (existUser) {
         return res.status(409).json({
           status: false,
           message: "Email already used!!",
         });
       }
-
       // mengenkripsi password
       const encryptedPassword = await bcrypt.hash(password, 10);
       const user = await user_game.create({
         username,
         email,
         password: encryptedPassword,
+        provider: userType.local,
+        role: roles.user,
       });
-
       return res.status(201).json({
         status: true,
         message: "Account Created!",
@@ -47,7 +47,6 @@ module.exports = {
     try {
       // get request body
       const { email, password } = req.body;
-
       // cek email user
       const user = await user_game.findOne({ where: { email: email } });
       if (!user) {
@@ -64,14 +63,12 @@ module.exports = {
           message: "email or password doesn't match",
         });
       }
-
       //, generate token jwt
       payload = {
         id: user.id,
         username: user.username,
         email: user.email,
       };
-
       const token = jwt.sign(payload, JWT_SIGNATURE_KEY);
 
       return res.status(201).json({

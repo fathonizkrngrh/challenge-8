@@ -3,20 +3,11 @@ const { user_game_biodata } = require("../models");
 module.exports = {
   addBio: async (req, res, next) => {
     try {
-      const { first_name, last_name, telephone_number, birthdate } = req.body;
-      const existBio = await user_game_biodata.findOne({
-        where: {
-          telephone_number: telephone_number,
-        },
-      });
-      if (existBio) {
-        return res.status(409).json({
-          status: false,
-          message: "Bio already registered",
-        });
-      }
+      const { userId } = req.params;
 
+      const { first_name, last_name, telephone_number, birthdate } = req.body;
       const createdBio = await user_game_biodata.create({
+        user_id: userId,
         first_name,
         last_name,
         telephone_number,
@@ -27,6 +18,7 @@ module.exports = {
         status: true,
         message: "success adding new bio",
         data: {
+          user_id: createdBio.user_id,
           firstname: createdBio.first_name,
           lastname: createdBio.last_name,
           telephonenumber: createdBio.telephone_number,
@@ -58,8 +50,10 @@ module.exports = {
   },
 
   detailBio: async (req, res, next) => {
-    const { id } = req.params;
-    const findBio = await user_game_biodata.findOne({ where: { id: id } });
+    const { userId } = req.params;
+    const findBio = await user_game_biodata.findOne({
+      where: { user_id: userId },
+    });
     if (!findBio) {
       return res.status(409).json({
         status: false,
@@ -75,7 +69,7 @@ module.exports = {
   },
   updatePhoneNumber: async (req, res, next) => {
     try {
-      const { oldPhoneNumber, newPhoneNumber, confirmPhoneNumber } = req.body;
+      const { newPhoneNumber, confirmPhoneNumber } = req.body;
       if (newPhoneNumber !== confirmPhoneNumber) {
         return res.status(422).json({
           status: false,
@@ -84,14 +78,8 @@ module.exports = {
       }
 
       const findBio = await user_game_biodata.findOne({
-        where: { telephone_number: oldPhoneNumber },
+        where: { user_id: userId },
       });
-      if (!findBio) {
-        return res.status(400).json({
-          status: false,
-          message: "phonenumber not found!",
-        });
-      }
       const updatedBio = await findBio.update({
         telephone_number: newPhoneNumber,
       });
@@ -107,9 +95,11 @@ module.exports = {
   },
 
   deleteBio: async (req, res, next) => {
-    const { id } = req.params;
+    const { userId } = req.params;
     try {
-      const findBio = await user_game_biodata.findOne({ where: { id: id } });
+      const findBio = await user_game_biodata.findOne({
+        where: { user_id: userId },
+      });
       if (!findBio) {
         return res.status(404).json({
           status: false,

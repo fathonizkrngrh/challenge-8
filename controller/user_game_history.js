@@ -13,7 +13,6 @@ module.exports = {
           id: user_id,
         },
       });
-      console.log(existUser);
       if (!existUser) {
         return res.status(409).json({
           status: false,
@@ -28,7 +27,6 @@ module.exports = {
         rank,
       });
 
-      console.log(existUser);
       return res.status(201).json({
         status: true,
         message: "success adding history",
