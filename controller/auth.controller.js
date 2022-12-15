@@ -7,9 +7,34 @@ const jwt = require("jsonwebtoken");
 const { JWT_SIGNATURE_KEY } = process.env;
 
 module.exports = {
+  registerPage: async (req, res) => {
+    try {
+      return res.render("auth/register");
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  loginPage: async (req, res) => {
+    try {
+      return res.render("auth/login");
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  changePasswordPage: async (req, res) => {
+    try {
+      const { token } = req.query;
+      const url = `http://localhost:3000/auth/changepassword?token=${token}`;
+      res.render("auth/resetPassword", { url });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   register: async (req, res, next) => {
     try {
-      const { username, email, password } = req.body;
+      const { username, email, password } = req.params;
+      console.log(username, email, password);
       const existUser = await user_game.findOne({
         where: {
           email: email,
